@@ -12,6 +12,10 @@
 <body>
 	<c:import url="./template/nav.jsp"></c:import>
 
+
+
+
+
 	<div class="container">
 		
 			<form action="./">
@@ -29,7 +33,9 @@
 			<spring:message code="loginMessage" arguments="${member.id},${member.email}" argumentSeparator=","></spring:message>
 			</c:if>
 		</h1> --%>
-
+	
+	
+		
 		<div class="containter">
 			<img alt="rabbit2.png" src="./images/rabbit2.png">
 		</div>

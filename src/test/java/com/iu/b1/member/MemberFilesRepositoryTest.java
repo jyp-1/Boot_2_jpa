@@ -14,8 +14,17 @@ class MemberFilesRepositoryTest {
 	@Autowired
 	private MemberFilesRepository memberFilesRepository;
 	
-	
 	@Test
+	void SelectTest() {
+		
+		MemberFilesVO memberFilesVO = memberFilesRepository.findById(2).get();
+		System.out.println(memberFilesVO.getFname());
+		System.out.println(memberFilesVO.getMemberVO().getId());
+	}
+	
+	
+	
+	//@Test
 	void test() throws Exception {
 		//List<MemberFilesVO> ar = memberFilesRepository.findAll();
 		//for(MemberFilesVO memberFilesVO:ar) {
@@ -45,11 +54,11 @@ class MemberFilesRepositoryTest {
 		 * System.out.println("Oname:"+ a);
 		 */
 		
-		List<MemberFilesVO> ar = memberFilesRepository.findById("aaa");
-		for(MemberFilesVO memberFilesVO:ar) {
-			System.out.println(memberFilesVO.getId());
-			System.out.println(memberFilesVO.getOname());
-		}
+		//List<MemberFilesVO> ar = memberFilesRepository.findById("aaa");
+		//for(MemberFilesVO memberFilesVO:ar) {
+		//	System.out.println(memberFilesVO.getId());
+		//	System.out.println(memberFilesVO.getOname());
+		//}
 		 	
 		 	
 		 	

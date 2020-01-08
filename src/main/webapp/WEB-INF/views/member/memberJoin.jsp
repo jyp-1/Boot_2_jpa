@@ -12,7 +12,7 @@
 <body>
 	<c:import url="../template/nav.jsp"></c:import>
 	<div class="container">
-		<h2>MemberJoin</h2>
+		<h2>MemberJoin</h2>        
 		<form:form action="./memberJoin" modelAttribute="memberVO" method="post" enctype="multipart/form-data">
 			<div class="form-group">
 				<label for="id">ID:</label>
@@ -58,6 +58,32 @@
 
 	</div>
 
+
+
+	<script type="text/javascript">
+	$("#id").blur(function(){
+		var id = $("#id").val();
+		
+		$.ajax({
+			type:"POST",
+			url: "./memberIdCheck",
+			data: {
+					id:id
+					},
+			success: function(data){
+				if(data){
+					alert("중복된 아이디입니다.")
+					$("#id").val("");
+					//$("#id").focus();
+					}else{
+					alert("사용가능한 아이디입니다.")
+						}
+				}
+			}); 
+		});
+	
+	</script>
+	
 
 
 </body>

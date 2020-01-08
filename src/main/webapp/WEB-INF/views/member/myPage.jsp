@@ -17,8 +17,15 @@
 	<h1>Name: ${member.name}</h1>
 	<h1>Email: ${member.email}</h1>
 	<h1>Photo</h1>
-	<img alt="" src="../upload/${ar.memberFilesVO.fname}">
+	<h3>${member.memberFilesVO.fname}</h3>
+	<h3>${member.memberFilesVO.oname}</h3>
+	<img alt="" src="../member/${member.memberFilesVO.fname}">
 	
+
+	<div>
+		<a href="./memberUpdate" class="btn btn-primary">Update</a>
+		<a href="./memberDelete" class="btn btn-danger">Delete</a>
+	</div>
 	
 </div>
 
