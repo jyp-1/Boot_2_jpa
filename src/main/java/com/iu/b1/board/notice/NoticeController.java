@@ -23,8 +23,6 @@ public class NoticeController {
 	@Resource(name = "noticeService")
 	private NoticeService noticeService;
 
-	@Autowired
-	private NoticeRepository noticeRepository;
 
 	@ModelAttribute(name = "board") // jsp로 보내주는거 board라는 속성을 notice로
 	public String getBoard() {
@@ -40,11 +38,12 @@ public class NoticeController {
 		mv.addObject("list", ar.getContent());
 		mv.setViewName("board/boardList");
 
-		System.out.println(ar.getTotalElements());
+		System.out.println("aaaaaa"+ar.getTotalElements());
 		System.out.println(ar.getTotalPages());
 		System.out.println(ar.getSize());
 		System.out.println(ar.getNumber());
 		System.out.println(ar.getNumberOfElements());
+		System.out.println("aaaaaa"+ar.getSort());
 
 		return mv;
 	}
