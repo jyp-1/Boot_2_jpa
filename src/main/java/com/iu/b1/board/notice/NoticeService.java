@@ -31,10 +31,7 @@ public class NoticeService {
 
 	
 	  public Page<NoticeVO> boardList(NoticeVO noticeVO, Pageable pageable) throws Exception { 
-	  int page = (pageable.getPageNumber()==0)?0:(pageable.getPageNumber()-1);
-	  pageable = PageRequest.of(page, 10, Sort.Direction.DESC,"num");
-	 
-		  
+
 	  return noticeRepository.findAll(pageable);
 	  
 	  }

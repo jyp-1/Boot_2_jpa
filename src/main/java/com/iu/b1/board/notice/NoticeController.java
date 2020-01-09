@@ -6,7 +6,9 @@ import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -32,18 +34,23 @@ public class NoticeController {
 	@GetMapping("noticeList")
 	public ModelAndView noticeList(NoticeVO noticeVO, Pageable pageable) throws Exception {
 		ModelAndView mv = new ModelAndView();
-
+		
+		int page = (pageable.getPageNumber()==0)?0:(pageable.getPageNumber());
+		pageable = PageRequest.of(page, 10, Sort.Direction.DESC,"num");
+		
 		Page<NoticeVO> ar = noticeService.boardList(noticeVO, pageable);
 		
 		mv.addObject("list", ar.getContent());
+		mv.addObject("page", ar);
 		mv.setViewName("board/boardList");
 
-		System.out.println("aaaaaa"+ar.getTotalElements());
-		System.out.println(ar.getTotalPages());
-		System.out.println(ar.getSize());
-		System.out.println(ar.getNumber());
-		System.out.println(ar.getNumberOfElements());
-		System.out.println("aaaaaa"+ar.getSort());
+		System.out.println("aaaaaa : " + ar.getTotalElements()); //글의 갯수
+		System.out.println(ar.getTotalPages()); //토탈블럭
+		System.out.println(ar.getSize());		// 
+		System.out.println(ar.getNumber()); //현재페이지
+		System.out.println(ar.getNumberOfElements());	// 
+		System.out.println("aaaaaa : " + ar.getSort()); //정렬 요소
+	
 
 		return mv;
 	}
