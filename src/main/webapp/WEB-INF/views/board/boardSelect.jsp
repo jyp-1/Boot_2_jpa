@@ -7,9 +7,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<c:import url="../template/boot.jsp"></c:import>
 </head>
 <body>
-
+<c:import url="../template/nav.jsp"></c:import>
 	<div class="container">
 		<h1>n o t i c e</h1>
 		<h2>s e l e c t</h2>
@@ -39,8 +40,8 @@
 				<label for="hit">hit: ${vo.hit} </label>
 			</div>
 
-			<c:forEach items="${files}" var="file">
-				<img alt="" src="../notice/${file.fname}" style="width: 300px;">
+			<c:forEach items="${vo.noticeFilesVOs}" var="file">
+				<h3>file: ${file.fname}</h3>
 			</c:forEach>
 
 

@@ -16,15 +16,19 @@
 	<div class="container">
 
 		<form action="./noticeList" id="frm">
-			<input type="hidden" id="curPage" value="1" name="curPage"> 
+			<%-- <input type="hidden" id="curPage" value="1" name="curPage"> 
 			<select	id="kind" name="kind">
 				<option id="kc" value="kc" selected="selected">CONTENTS</option>
 				<option id="kt" value="kt">TITLE</option>
 				<option id="kw" value="kw">WRITER</option>
 			</select> <input type="text" id="search" name="search" value="${pager.search}">
-			<button class="btn btn-basic">검색</button>
+			<button class="btn btn-basic">검색</button> --%>
 		</form>
 
+		<div style="float: right;">
+			<a href="./${board}Write" class="btn btn-danger">Write</a>
+		</div>
+		<br><br>
 
 		<table class="table table-hover">
 			<tr>
@@ -33,15 +37,21 @@
 				<td>Writer</td>
 				<td>Date</td>
 				<td>Hit</td>
+				<!-- <td>file</td> -->
 			</tr>
 
 			<c:forEach items="${list}" var="vo">
 				<tr>
 					<td>${vo.num}</td>
-					<td><a href="noticeSelect?num=${vo.num}">${vo.title}</a></td>
+					<td><a href="./${board}Select?num=${vo.num}">${vo.title}</a></td>
 					<td>${vo.writer}</td>
 					<td>${vo.regDate}</td>
 					<td>${vo.hit}</td>
+					 <td>
+						<c:forEach items="${vo.noticeFilesVOs}" var="f">
+							${f.fname}
+						</c:forEach>
+					</td> 
 				</tr>
 
 			</c:forEach>

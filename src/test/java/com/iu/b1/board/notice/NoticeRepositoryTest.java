@@ -44,10 +44,10 @@ class NoticeRepositoryTest {
 		}*/
 		
 		
-		List<NoticeVO> ar = noticeRepository.findByNumGreaterThanOrderByNumDesc(0);
-		for(NoticeVO noticeVO:ar) {
-			System.out.println(noticeVO.getTitle());
-		}
+	//	List<NoticeVO> ar = noticeRepository.findByNumGreaterThanOrderByNumDesc(0);
+	//	for(NoticeVO noticeVO:ar) {
+	//		System.out.println(noticeVO.getTitle());
+	//	}
 		
 		
 		
