@@ -1,6 +1,5 @@
 package com.iu.b1.board.notice;
 
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +12,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.iu.b1.util.FIlePathGenerator;
@@ -29,14 +29,13 @@ public class NoticeService {
 	@Autowired
 	private FileSaver fileSaver;
 
+	public Page<NoticeVO> boardList(Pageable pageable) throws Exception {
+
 	
-	  public Page<NoticeVO> boardList(NoticeVO noticeVO, Pageable pageable) throws Exception { 
+			return noticeRepository.findAll(pageable);
+		
 
-	  return noticeRepository.findAll(pageable);
-	  
-	  }
-	 
-
+	}
 
 	public NoticeVO boardSelect(Integer num) throws Exception {
 		Optional<NoticeVO> opt = noticeRepository.findById(num);

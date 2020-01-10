@@ -32,13 +32,15 @@ public class NoticeController {
 	}
 
 	@GetMapping("noticeList")
-	public ModelAndView noticeList(NoticeVO noticeVO, Pageable pageable) throws Exception {
+	public ModelAndView noticeList(Pageable pageable) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		
-		int page = (pageable.getPageNumber()==0)?0:(pageable.getPageNumber());
-		pageable = PageRequest.of(page, 10, Sort.Direction.DESC,"num");
 		
-		Page<NoticeVO> ar = noticeService.boardList(noticeVO, pageable);
+		 int page = (pageable.getPageNumber()==0)?0:(pageable.getPageNumber());
+		 pageable = PageRequest.of(page, 10, Sort.Direction.DESC,"num");
+		
+		
+		Page<NoticeVO> ar = noticeService.boardList(pageable);
 		
 		mv.addObject("list", ar.getContent());
 		mv.addObject("page", ar);

@@ -16,4 +16,13 @@ public interface NoticeRepository extends JpaRepository<NoticeVO, Integer>{
 	public List<NoticeVO> findByNumGreaterThanOrderByNumDesc(int num)throws Exception;
 
 	public Page<NoticeVO> findAll(Pageable pageable);
+	
+	//public Page<NoticeVO> findByTitleContainingAndGreaterThan(int num, String title,Pageable pageable)throws Exception;
+	
+	//public Page<NoticeVO> findByContentsContainingAndGreaterThan(int num,String contents, Pageable pageable)throws Exception;
+	
+	//public Page<NoticeVO> findByWriterContainingAndGreaterThan(int num, String writer,Pageable pageable)throws Exception;
+	
+	
+	
 }
